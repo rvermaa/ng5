@@ -1,0 +1,24 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add a bucket list Item</p>
+  </div>
+  <div class="col">
+    <p>Your bucket list ({{itemCount}})</p>
+  </div>
+</div>
+<div class="container color-light" [@animationGoals]="goals.length">
+  <div class="col">
+    <p class="sm">Use this space to add ur life goal u have....</p>
+    <form>
+      <input type="text" class="txt" name="item" placeholder="Life Goal.." [(ngModel)]="goalText">
+      <!-- <br>
+      <span>{{ goalText }}</span> // used as to show 2 way binding
+      <br> -->
+      <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+      <!-- ///example of property binding -->
+    </form>
+  </div>
+  <div class="col">
+    <p class="life-container" *ngFor ="let goal of goals;let i = index"(click)="removeItem(i)">{{goal}}</p>
+  </div>
+</div>
